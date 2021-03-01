@@ -16,7 +16,6 @@ RUN set -ex \
 
 
 RUN mkdir /logs \
-        && mkdir /updateTeam \
         && mkdir /jds \
         && cd /jds \
         && git init \
