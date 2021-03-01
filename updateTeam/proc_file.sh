@@ -32,14 +32,14 @@ fi
 
 ##京东京喜工厂自动开团
 echo "执行京东京喜工厂自动开团..."
-node /jds/js/jd_jxFactoryCreateTuan.js >> /logs/jd_jxFactoryCreateTuan.log 2>&1
+node /jds/updateTeam/js/jd_jxFactoryCreateTuan.js >> /logs/jd_jxFactoryCreateTuan.log 2>&1
 
 ##赚京豆小程序
 echo "执行赚京豆小程序..."
-node /jds/js/jd_zzUpdate.js >> /logs/jd_zzUpdate.log 2>&1
+node /jds/updateTeam/js/jd_zzUpdate.js >> /logs/jd_zzUpdate.log 2>&1
 
 echo "更新updateTeam仓库文件..."
-cp -rf /jds/js/shareCodes /updateTeam/
+cp -rf /jds/updateTeam/js/shareCodes /updateTeam/
 echo "提交updateTeam仓库文件..."
 git add -A
 git commit -m "更新shareCodes JSON文件"

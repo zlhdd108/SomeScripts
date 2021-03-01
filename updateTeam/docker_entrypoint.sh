@@ -11,8 +11,7 @@ echo "更新jds仓库文件..."
 git reset --hard
 git pull origin master --rebase
 echo "npm install 安装最新依赖..."
-cd /jds/js
-npm install --loglevel error --prefix /scripts
+npm install --loglevel error --prefix /jds/updateTeam/js
 
 echo "------------------------------------------------执行定时任务任务shell脚本------------------------------------------------"
 sh -x /jds/updateTeam/default_task.sh

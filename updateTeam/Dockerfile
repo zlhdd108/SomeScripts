@@ -1,6 +1,5 @@
 FROM alpine
-LABEL AUTHOR="none" \
-        VERSION=0.0.1
+LABEL VERSION=1.0
 
 ENV DEFAULT_LIST_FILE=crontab_list.sh \
         CUSTOM_LIST_MERGE_TYPE=append
@@ -15,18 +14,18 @@ RUN set -ex \
         && chmod 600 /root/.ssh/id_rsa \
         && ssh-keyscan github.com > /root/.ssh/known_hosts
 
-RUN mkdir /jds \
-        && mkdir /logs \
+
+RUN mkdir /logs \
+        && mkdir /updateTeam \
+        && mkdir /jds \
         && cd /jds \
         && git init \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
-        && echo updateTeam >> /jds/.git/info/sparse-checkout \
-        && git pull origin master --rebase \
-        && cd /jds/js \
+        && echo updateTeam/* >> /pss/.git/info/sparse-checkout \
+        && git pull origin master \
+        && cd /jds/updateTeam/js \
         && npm install
-        
-RUN mkdir /updateTeam
 
 RUN cp /updateTeam/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
