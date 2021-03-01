@@ -22,7 +22,7 @@ RUN mkdir /logs \
         && git init \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
-        && echo updateTeam/* >> /pss/.git/info/sparse-checkout \
+        && echo updateTeam/* >> /jds/.git/info/sparse-checkout \
         && git pull origin master \
         && cd /jds/updateTeam/js \
         && npm install
