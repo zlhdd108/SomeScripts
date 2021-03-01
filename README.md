@@ -1,2 +1,0 @@
-# SomeScripts
-SomeScripts
