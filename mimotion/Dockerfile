@@ -18,7 +18,7 @@ RUN mkdir /logs \
         && git init \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
-        && echo mimotion/* >> /pss/.git/info/sparse-checkout \
+        && echo mimotion/* >> /scripts/.git/info/sparse-checkout \
         && git pull origin master \
         && cp /scripts/mimotion/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
