@@ -27,10 +27,10 @@ RUN mkdir /logs \
         && cd /jds/updateTeam/js \
         && npm install
 
-RUN cp /updateTeam/docker_entrypoint.sh /usr/local/bin \
+RUN cp /jds/updateTeam/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-WORKDIR /scripts
+WORKDIR /jds/updateTeam
 
 ENTRYPOINT ["docker_entrypoint.sh"]
 
