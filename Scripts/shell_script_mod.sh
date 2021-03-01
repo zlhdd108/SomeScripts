@@ -22,6 +22,10 @@ sed -i "s/20 \* \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts
 # wget -O /scripts/jx_cfdtx.js https://raw.githubusercontent.com/Aaron-lv/JavaScript/master/Task/jx_cfdtx.js
 # echo "# 京喜财富岛提现" >> /scripts/docker/merged_list_file.sh
 # echo "0 0 * * * node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+# 签到领现金助力
+wget -O /scripts/jd_cash_piao.js https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_cash_piao.js
+echo "# 签到领现金" >> /scripts/docker/merged_list_file.sh
+echo "1 0 * * * node /scripts/jd_cash_piao.js >> /scripts/logs/jd_cash_piao.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 红包雨
 wget -O /scripts/jd_live_redrain.js https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_live_redrain.js
 echo "# 红包雨" >> /scripts/docker/merged_list_file.sh
@@ -53,7 +57,7 @@ sed -i "s/\(.*\/\/.*joinLeaderTuan.*\)/  await joinLeaderTuan();/g" /scripts/jd_
 sed -i "s/https:\/\/gitee.com\/shylocks\/updateTeam\/raw\/main\/jd_zz.json/https:\/\/raw.githubusercontent.com\/FKPYW\/updateTeam\/master\/shareCodes\/jd_zz.json/g" /scripts/jd_jdzz.js
 sed -i "s/https:\/\/gitee.com\/lxk0301\/updateTeam\/raw\/master\/shareCodes\/jd_zz.json/https:\/\/raw.githubusercontent.com\/FKPYW\/updateTeam\/master\/shareCodes\/jd_zz.json/g" /scripts/jd_jdzz.js
 # 签到领现金助力码
-sed -ie "32,33s/^[^\]*/  \`eU9YaOvnM_4k9WrcnnAT1Q@eU9Yar-3M_8v9WndniAQhA@eU9YaOiwMKklo2eGyCFG1A@aUNmM6_nOP4j-W4@eU9Yau3kZ_4g-DiByHEQ0A@f0JyJuW7bvQ@IhM0bu-0b_kv8W6E@eU9YKpnxOLhYtQSygTJQ@-oaWtXEHOrT_bNMMVso@eU9YG7XaD4lXsR2krgpG\`,/g" /scripts/jd_cash.js
+sed -ie "32,33s/^[^\]*/  \`eU9YaOvnM_4k9WrcnnAT1Q@eU9Yar-3M_8v9WndniAQhA@eU9YaOiwMKklo2eGyCFG1A@fkFwauq3ZA@aUNmM6_nOP4j-W4@eU9Yau3kZ_4g-DiByHEQ0A@f0JyJuW7bvQ@IhM0bu-0b_kv8W6E@eU9YKpnxOLhYtQSygTJQ@-oaWtXEHOrT_bNMMVso@eU9YG7XaD4lXsR2krgpG\`,/g" /scripts/jd_cash.js
 # 修改助力开关
 sed -i "s/helpAu = true;/helpAu = false;/g" /scripts/jd_*.js
 sed -i "s/helpAuthor = true;/helpAuthor = false;/g" /scripts/jd_*.js
