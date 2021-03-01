@@ -28,7 +28,7 @@ RUN mkdir /jds \
         
 RUN mkdir /updateTeam
 
-RUN cp /jds/updateTeam/docker_entrypoint.sh /usr/local/bin \
+RUN cp /updateTeam/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
 WORKDIR /scripts
