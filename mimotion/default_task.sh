@@ -2,13 +2,13 @@
 set -e
 
 echo "定义定时任务合并处理用到的文件路径..."
-defaultListFile="/jds/updateTeam/$DEFAULT_LIST_FILE"
+defaultListFile="/scripts/mimotion/$DEFAULT_LIST_FILE"
 echo "默认文件定时任务文件路径为 ${defaultListFile}"
 if [ $CUSTOM_LIST_FILE ]; then
-    customListFile="/jds/updateTeam/$CUSTOM_LIST_FILE"
+    customListFile="/scripts/mimotion/$CUSTOM_LIST_FILE"
     echo "自定义定时任务文件路径为 ${customListFile}"
 fi
-mergedListFile="/jds/updateTeam/merged_list_file.sh"
+mergedListFile="/scripts/mimotion/merged_list_file.sh"
 echo "合并后定时任务文件路径为 ${mergedListFile}"
 
 echo "第1步将默认定时任务列表添加到合并后定时任务文件..."
