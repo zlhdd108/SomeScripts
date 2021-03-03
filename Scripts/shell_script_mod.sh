@@ -14,9 +14,6 @@ sed -i "s/10 11 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts
 ## 修改美丽颜究院定时
 sed -i "s/1 7,12,19 \* \* \* node \/scripts\/jd_beauty.js/30 8,13,20 \* \* \* node \/scripts\/jd_beauty.js/g" /scripts/docker/merged_list_file.sh
 sed -i "s/1 7,12,19 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_beauty.js/30 8,13,20 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_beauty.js/g" /scripts/docker/merged_list_file.sh
-## 京喜工厂定时
-sed -i "s/20 \* \* \* \* node \/scripts\/jd_dreamFactory.js/30 1,2,6-23\/1 \* \* \* node \/scripts\/jd_dreamFactory.js/g" /scripts/docker/merged_list_file.sh
-sed -i "s/20 \* \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_dreamFactory.js/30 1,2,6-23\/1 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_dreamFactory.js/g" /scripts/docker/merged_list_file.sh
 
 # 京喜财富岛提现
 # wget -O /scripts/jx_cfdtx.js https://raw.githubusercontent.com/Aaron-lv/JavaScript/master/Task/jx_cfdtx.js
