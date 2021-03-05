@@ -39,9 +39,6 @@ node /jds/updateTeam/js/jd_zzUpdate.js >> /logs/jd_zzUpdate.log 2>&1
 ##更新领现金
 echo "执行更新领现金..."
 node /jds/updateTeam/js/jd_updateCash.js >> /logs/jd_updateCash.log 2>&1
-##京喜财富岛
-echo "执行京喜财富岛..."
-node /jds/updateTeam/js/jd_updateCfd.js >> /logs/jd_updateCfd.log 2>&1
 
 echo "更新updateTeam仓库文件..."
 cp -rf /jds/updateTeam/js/shareCodes /updateTeam/
