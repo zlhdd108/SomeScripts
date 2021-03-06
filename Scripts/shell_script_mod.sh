@@ -5,7 +5,7 @@ wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScrip
 echo "# diy sh" >> /scripts/docker/merged_list_file.sh
 echo "58 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 宠汪汪邀请助力
-wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_joyrun.sh
+wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_joyrun.js
 echo "# 宠汪汪邀请助力" >> /scripts/docker/merged_list_file.sh
 echo "2 9-20/2 * * * node /scripts/jd_joyrun.js >> /scripts/logs/jd_joyrun.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
