@@ -22,13 +22,13 @@ wget -O /scripts/jd_entertainment.js https://raw.githubusercontent.com/i-chenzhe
 echo "# 百变大咖秀" >> /scripts/docker/merged_list_file.sh
 echo "10 10,11 * * 1-4 node /scripts/jd_entertainment.js >> /scripts/logs/jd_entertainment.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 粉丝互动
-wget -O /scripts/jd_getFanslove.js https://github.com/i-chenzhe/qx/blob/main/jd_getFanslove.js
+wget -O /scripts/jd_fanslove.js https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_fanslove.js
 echo "# 粉丝互动" >> /scripts/docker/merged_list_file.sh
 echo "3 10 * * * node /scripts/jd_fanslove.js >> /scripts/logs/jd_fanslove.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 母婴-跳一跳
-wget -O /scripts/jd_jump-jump.js https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_jump-jump.js
+wget -O /scripts/jd_jump_jump.js https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_jump_jump.js
 echo "# 母婴-跳一跳" >> /scripts/docker/merged_list_file.sh
-echo "5 8,14,20 2-7 3 * node /scripts/jd_jump-jump.js >> /scripts/logs/jd_jump-jump.log 2>&1" >> /scripts/docker/merged_list_file.sh
+echo "5 8,14,20 2-7 3 * node /scripts/jd_jump_jump.js >> /scripts/logs/jd_jump_jump.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 超级摇一摇
 wget -O /scripts/jd_shake.js https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_shake.js
 echo "# 超级摇一摇" >> /scripts/docker/merged_list_file.sh
