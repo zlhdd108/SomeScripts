@@ -2,13 +2,13 @@
 set -e
 
 echo "定义定时任务合并处理用到的文件路径..."
-defaultListFile="/scripts/mimotion/$DEFAULT_LIST_FILE"
+defaultListFile="/scripts/UnicomTask/$DEFAULT_LIST_FILE"
 echo "默认文件定时任务文件路径为 ${defaultListFile}"
 if [ $CUSTOM_LIST_FILE ]; then
-    customListFile="/scripts/mimotion/$CUSTOM_LIST_FILE"
+    customListFile="/scripts/UnicomTask/$CUSTOM_LIST_FILE"
     echo "自定义定时任务文件路径为 ${customListFile}"
 fi
-mergedListFile="/scripts/mimotion/merged_list_file.sh"
+mergedListFile="/scripts/UnicomTask/merged_list_file.sh"
 echo "合并后定时任务文件路径为 ${mergedListFile}"
 
 echo "第1步将默认定时任务列表添加到合并后定时任务文件..."
@@ -41,7 +41,7 @@ if [ $(grep -c "docker_entrypoint.sh" $mergedListFile) -eq '0' ]; then
     echo "" >>$mergedListFile
     echo "# 默认定时任务" >>$mergedListFile
     echo "0 */12 * * * docker_entrypoint.sh >> /logs/default_task.log 2>&1" >>$mergedListFile
-    echo "# 默认mimotion任务" >>$mergedListFile
+    echo "# 默认UnicomTask任务" >>$mergedListFile
     echo "30 23 * * * python3 /UnicomTask/main.py >> /logs/main.log 2>&1" >>$mergedListFile
 else
     echo "合并后的定时任务文件，已包含必须的默认定时任务，跳过执行..."
