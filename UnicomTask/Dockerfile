@@ -10,6 +10,7 @@ RUN set -ex \
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
 RUN mkdir /logs \
+        && mkdir /UnicomTask \
         && mkdir /scripts \
         && cd /scripts \
         && git init \
@@ -20,11 +21,12 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTask \
-        && cd /UnicomTask \
+RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTaskScripts \
+        && cd /UnicomTaskScripts \
         && git checkout main \
         && pip3 install --upgrade pip \
-        && pip3 install -r requirements.txt
+        && pip3 install -r requirements.txt \
+        && cp /UnicomTaskScripts/*.py /UnicomTask
 
 WORKDIR /UnicomTask
 
