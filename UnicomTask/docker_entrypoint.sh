@@ -10,10 +10,8 @@ echo "获取最新UnicomTask相关代码"
 cd /scripts
 git reset --hard
 git pull origin master --rebase
-cd /UnicomTaskScripts
-git reset --hard
-git pull origin main --rebase
-cp -f /UnicomTaskScripts/*.py /UnicomTask
+cd /UnicomTask
+git pull
 echo "获取最新UnicomTask相关代码完成"
 
 echo "首次初始化定时任务..."
