@@ -18,5 +18,10 @@ echo "首次初始化定时任务..."
 sh -x /scripts/UnicomTask/default_task.sh
 echo "初始化完成..."
 
-echo "启动crondtab定时任务主进程..."
-crond -f
+if [ $run_cmd ]; then
+    echo "启动crondtab定时任务主进程..."
+    crond -f
+else
+    echo "默认定时任务执行结束。"
+fi
+echo -e "\n\n"
