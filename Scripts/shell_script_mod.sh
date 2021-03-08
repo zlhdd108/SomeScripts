@@ -6,7 +6,8 @@ echo "# diy sh" >> /scripts/docker/merged_list_file.sh
 echo "58 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 宠汪汪邀请助力
 wget -O /scripts/docker/jd_joy_run.js https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_joy_run.js
-
+## 修改京东汽车兑换定时
+sed -i "s/0 0 \* \* \* node \/scripts\/jd_car_exchange.js/2 0 \* \* \* node \/scripts\/jd_car_exchange.js/g" /scripts/docker/merged_list_file.sh
 ## 修改闪购盲盒定时
 sed -i "s/27 8 \* \* \* node \/scripts\/jd_sgmh.js/27 8,23 \* \* \* node \/scripts\/jd_sgmh.js/g" /scripts/docker/merged_list_file.sh
 sed -i "s/27 8 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_sgmh.js/27 8,23 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_sgmh.js/g" /scripts/docker/merged_list_file.sh
