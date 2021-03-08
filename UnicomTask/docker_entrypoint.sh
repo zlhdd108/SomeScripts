@@ -20,11 +20,3 @@ echo "初始化完成..."
 
 echo "启动crondtab定时任务主进程..."
 crond -f
-
-if [ $run_cmd ]; then
-    echo "Start crontab task main process..."
-    echo "启动crondtab定时任务主进程..."
-    crond -f
-else
-    echo "默认定时任务执行结束。"
-fi
