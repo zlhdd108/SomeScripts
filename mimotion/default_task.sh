@@ -42,7 +42,7 @@ if [ $(grep -c "docker_entrypoint.sh" $mergedListFile) -eq '0' ]; then
     echo "# 默认定时任务" >>$mergedListFile
     echo "0 */12 * * * docker_entrypoint.sh >> /logs/default_task.log 2>&1" >>$mergedListFile
     echo "# 默认mimotion任务" >>$mergedListFile
-    echo "10 16 * * * python3 /scripts/mimotion/mimotion.py >> /logs/mimotion.log 2>&1" >>$mergedListFile
+    echo "10 16 * * * cd /scripts/mimotion && python3 mimotion.py >> /logs/mimotion.log 2>&1" >>$mergedListFile
 else
     echo "合并后的定时任务文件，已包含必须的默认定时任务，跳过执行..."
 fi
