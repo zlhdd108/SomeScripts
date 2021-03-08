@@ -16,9 +16,6 @@ echo "首次初始化定时任务..."
 sh -x /scripts/mimotion/default_task.sh
 echo "初始化完成..."
 
-echo "启动crondtab定时任务主进程..."
-crond -f
-
 if [ $run_cmd ]; then
     echo "Start crontab task main process..."
     echo "启动crondtab定时任务主进程..."
