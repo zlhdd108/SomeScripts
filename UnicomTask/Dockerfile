@@ -19,6 +19,19 @@ RUN mkdir /logs \
         && echo UnicomTask >> /pss/.git/info/sparse-checkout \
         && git pull origin master --rebase
 
+RUN mkdir /UnicomTask \
+        && cd /UnicomTask \
+        && git init \
+        && git remote add -f origin https://github.com/srcrs/UnicomTask \
+        && git config core.sparsecheckout true \
+        && echo login.py >>/UnicomTask/.git/info/sparse-checkout \
+        && echo main.py >>/UnicomTask/.git/info/sparse-checkout \
+        && echo notify.py >>/UnicomTask/.git/info/sparse-checkout \
+        && echo requirements.txt >>/UnicomTask/.git/info/sparse-checkout \
+        && git pull origin master --rebase \
+        && pip3 install --upgrade pip \
+        && pip3 install -r requirements.txt
+
 RUN cp /pss/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 

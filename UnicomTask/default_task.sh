@@ -14,31 +14,7 @@ echo "合并后定时任务文件路径为 ${mergedListFile}"
 echo "第1步将默认定时任务列表添加到合并后定时任务文件..."
 cat $defaultListFile >$mergedListFile
 
-echo "第2步执行scripts_update.sh脚本任务..."
-sh -x /pss/UnicomTask/scripts_update.sh
-
-echo "第3步判断是否配置自定义shell脚本..."
-if [ 0"$CUSTOM_SHELL_FILE" = "0" ]; then
-    echo "未配置自定shell脚本文件，跳过执行。"
-else
-    if expr "$CUSTOM_SHELL_FILE" : 'http.*' &>/dev/null; then
-        echo "自定义shell脚本为远程脚本，开始下载自定义远程脚本..."
-        wget -O /pss/UnicomTask/pss_shell_mod.sh $CUSTOM_SHELL_FILE
-        echo "下载完成，开始执行..."
-        sh -x /pss/UnicomTask/pss_shell_mod.sh
-        echo "自定义远程shell脚本下载并执行结束。"
-    else
-        if [ ! -f $CUSTOM_SHELL_FILE ]; then
-            echo "自定义shell脚本为挂载的脚本文件，但是指定挂载文件不存在，跳过执行。"
-        else
-            echo "挂载的自定义shell脚本，开始执行..."
-            sh -x $CUSTOM_SHELL_FILE
-            echo "挂载的自定义shell脚本，执行结束。"
-        fi
-    fi
-fi
-
-echo "第4步判断是否存在自定义任务任务列表并追加..."
+echo "第2步判断是否存在自定义任务任务列表并追加..."
 if [ $CUSTOM_LIST_FILE ]; then
     echo "您配置了自定义任务文件：$CUSTOM_LIST_FILE，自定义任务类型为：$CUSTOM_LIST_MERGE_TYPE..."
     if [ -f "$customListFile" ]; then
@@ -58,21 +34,22 @@ else
     echo "当前只使用了默认定时任务文件 $DEFAULT_LIST_FILE ..."
 fi
 
-echo "第5步判断是否配置了默认脚本更新任务..."
+echo "第3步判断是否配置了默认脚本更新任务..."
 if [ $(grep -c "docker_entrypoint.sh" $mergedListFile) -eq '0' ]; then
     echo "合并后的定时任务文件，未包含必须的默认定时任务，增加默认定时任务..."
     echo "" >>$mergedListFile
     echo "# 默认定时任务" >>$mergedListFile
     echo "52 */12 * * * docker_entrypoint.sh >> /logs/default_task.log 2>&1" >>$mergedListFile
+    echo "30 23 * * * cd /UnicomTask && python3 main.py >> /logs/main.log 2>&1" >>$mergedListFile
 else
     echo "合并后的定时任务文件，已包含必须的默认定时任务，跳过执行..."
 fi
 
-echo "第6步增加 |ts 任务日志输出时间戳..."
+echo "第4步增加 |ts 任务日志输出时间戳..."
 sed -i "/\( ts\| |ts\|| ts\)/!s/>>/\|ts >>/g" $mergedListFile
 
-echo "第7步加载最新的定时任务文件..."
+echo "第5步加载最新的定时任务文件..."
 crontab $mergedListFile
 
-echo "第8步将仓库的docker_entrypoint.sh脚本更新至系统/usr/local/bin/docker_entrypoint.sh内..."
+echo "第6步将仓库的docker_entrypoint.sh脚本更新至系统/usr/local/bin/docker_entrypoint.sh内..."
 cat /pss/UnicomTask/docker_entrypoint.sh >/usr/local/bin/docker_entrypoint.sh
