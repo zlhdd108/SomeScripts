@@ -6,21 +6,20 @@ if [ $1 ]; then
     run_cmd=$1
 fi
 
-cd /pss
-echo "获取最新定时任务相关代码..."
+echo "获取最新UnicomTask相关代码"
+cd /scripts
 git reset --hard
 git pull origin master --rebase
+echo "获取最新UnicomTask相关代码完成"
 
-cd /UnicomTask && git pull
-
-echo "------------------------------------------------执行定时任务任务shell脚本------------------------------------------------"
-sh -x /pss/UnicomTask/default_task.sh
-echo "--------------------------------------------------默认定时任务执行完成---------------------------------------------------"
+echo "首次初始化定时任务..."
+sh -x /scripts/UnicomTask/default_task.sh
+echo "初始化完成..."
 
 if [ $run_cmd ]; then
+    echo "Start crontab task main process..."
     echo "启动crondtab定时任务主进程..."
     crond -f
 else
     echo "默认定时任务执行结束。"
 fi
-echo -e "\n\n"
