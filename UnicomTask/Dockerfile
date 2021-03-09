@@ -11,7 +11,6 @@ RUN set -ex \
 # 创建工作目录
 RUN mkdir /logs \
         && mkdir /scripts \
-        && mkdir /UnicomTask \
         && cd /scripts \
         && git init \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
@@ -22,6 +21,7 @@ RUN mkdir /logs \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
 RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTaskScripts \
+        && mkdir /UnicomTask \
         && cd /UnicomTaskScripts \
         && git checkout main \
         && cp /UnicomTaskScripts/*.py /UnicomTask \
