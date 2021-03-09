@@ -20,13 +20,14 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTaskScripts \
-        && mkdir /UnicomTask \
-        && cd /UnicomTaskScripts \
-        && git checkout main \
-        && cp /UnicomTaskScripts/*.py /UnicomTask \
-        && cp /UnicomTaskScripts/requirements.txt /UnicomTask \
-        && cd /UnicomTaskScripts \
+RUN mkdir /UnicomTask \
+        && cd /UnicomTask \
+        && git init \
+        && git remote add -f origin https://github.com/srcrs/UnicomTask.git \
+        && git config core.sparsecheckout true \
+        && echo *.py >> /scripts/.git/info/sparse-checkout \
+        && echo requirements.txt >> /scripts/.git/info/sparse-checkout \
+        && git pull origin main \
         && pip3 install --upgrade pip \
         && pip3 install -r requirements.txt
 
