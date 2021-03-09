@@ -15,7 +15,7 @@ git -C /UnicomTask pull origin main --rebase
 echo "获取最新UnicomTask相关代码完成"
 cp -f /UnicomTask/*.py /DoUnicomTask
 cp -f /UnicomTask/requirements.txt /DoUnicomTask
-cd /DoUnicomTask && pip3 install --upgrade pip && pip3 install -r requirements.txt
+cd /DoUnicomTask && pip3 install -r requirements.txt
 echo "首次初始化定时任务..."
 sh -x /scripts/UnicomTask/default_task.sh
 echo "初始化完成..."

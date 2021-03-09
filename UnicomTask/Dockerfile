@@ -23,7 +23,12 @@ RUN mkdir /logs \
 
 RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTask \
         && cd /UnicomTask \
-        && git checkout main
+        && git checkout main \
+        && cp /UnicomTask/*.py /DoUnicomTask \
+        && cp /UnicomTask/requirements.txt /DoUnicomTask \
+        && cd /DoUnicomTask \
+        && pip3 install --upgrade pip \
+        && pip3 install -r requirements.txt
 
 WORKDIR /DoUnicomTask
 
