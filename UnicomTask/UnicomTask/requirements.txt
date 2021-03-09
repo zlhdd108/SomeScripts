@@ -1,4 +1,0 @@
-py-emails
-requests
-lxml
-rsa

@@ -7,6 +7,8 @@ RUN set -ex \
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
+RUN pip3 install --upgrade pip \
+        && pip3 install requests lxml rsa py-emails
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
 RUN mkdir /logs \
@@ -18,12 +20,9 @@ RUN mkdir /logs \
         && echo UnicomTask/* >> /scripts/.git/info/sparse-checkout \
         && git pull origin master \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
-        && chmod +x /usr/local/bin/docker_entrypoint.sh \
-        && cd /scripts/UnicomTask/UnicomTask \
-        && pip3 install --upgrade pip \
-        && pip3 install -r requirements.txt
+        && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-WORKDIR /scripts/UnicomTask/UnicomTask
+WORKDIR /scripts/UnicomTask
 
 #镜像构建版本,每次调整构建文件更新
 ENV BUILD_VERSION=1.0 \
