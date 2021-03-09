@@ -2,9 +2,9 @@
 set -e
 
 ##定义合并定时任务相关文件路径变量
-defaultListFile="/pss/pack_some_script/$DEFAULT_LIST_FILE"
-customListFile="/pss/pack_some_script/$CUSTOM_LIST_FILE"
-mergedListFile="/pss/pack_some_script/merged_list_file.sh"
+defaultListFile="/pss/UnicomTask/$DEFAULT_LIST_FILE"
+customListFile="/pss/UnicomTask/$CUSTOM_LIST_FILE"
+mergedListFile="/pss/UnicomTask/merged_list_file.sh"
 
 function initUnicomTask() {
     mkdir /UnicomTask

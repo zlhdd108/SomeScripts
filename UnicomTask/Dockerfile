@@ -19,7 +19,7 @@ RUN mkdir /logs \
         && echo UnicomTask >> /pss/.git/info/sparse-checkout \
         && git pull origin master --rebase
 
-RUN cp /pss/pack_some_script/docker_entrypoint.sh /usr/local/bin \
+RUN cp /pss/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
 ENTRYPOINT ["docker_entrypoint.sh"]
