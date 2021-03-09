@@ -8,7 +8,7 @@ RUN set -ex \
         && echo "Asia/Shanghai" > /etc/timezone
 
 RUN pip3 install --upgrade pip \
-        && pip3 install requests lxml rsa py-emails
+        && pip3 install requests lxml rsa
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
 RUN mkdir /logs \
