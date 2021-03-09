@@ -11,6 +11,7 @@ RUN set -ex \
 # 创建工作目录
 RUN mkdir /logs \
         && mkdir /scripts \
+        && mkdir /UnicomTask \
         && cd /scripts \
         && git init \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
@@ -20,9 +21,12 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTask \
-        && cd /UnicomTask \
+RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTaskScripts \
+        && cd /UnicomTaskScripts \
         && git checkout main \
+        && cp /UnicomTaskScripts/*.py /UnicomTask \
+        && cp /UnicomTaskScripts/requirements.txt /UnicomTask \
+        && cd /UnicomTaskScripts \
         && pip3 install --upgrade pip \
         && pip3 install -r requirements.txt
 
