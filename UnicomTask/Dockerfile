@@ -24,11 +24,11 @@ RUN mkdir /UnicomTask \
         && git init \
         && git remote add -f origin https://github.com/srcrs/UnicomTask \
         && git config core.sparsecheckout true \
-        && echo login.py >>/UnicomTask/.git/info/sparse-checkout \
-        && echo main.py >>/UnicomTask/.git/info/sparse-checkout \
-        && echo notify.py >>/UnicomTask/.git/info/sparse-checkout \
-        && echo requirements.txt >>/UnicomTask/.git/info/sparse-checkout \
-        && git pull origin master --rebase \
+        && echo login.py >> .git/info/sparse-checkout \
+        && echo main.py >> .git/info/sparse-checkout \
+        && echo notify.py >> .git/info/sparse-checkout \
+        && echo requirements.txt >> .git/info/sparse-checkout \
+        && git pull origin main --rebase \
         && pip3 install --upgrade pip \
         && pip3 install -r requirements.txt
 
