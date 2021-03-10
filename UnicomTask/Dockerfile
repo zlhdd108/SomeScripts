@@ -1,14 +1,14 @@
-FROM ubuntu
+FROM alpine:3.3
 LABEL VERSION=1.0
 
 RUN set -ex \
-        && apt update && apt upgrade \
-        && apt add --no-cache python3 python3-pip tzdata moreutils git curl jq \
+        && apk update && apk upgrade \
+        && apk add --no-cache python py-pip tzdata moreutils git curl jq\
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
-RUN pip3 install --upgrade pip \
-        && pip3 install requests lxml rsa py-emails
+RUN pip install --upgrade pip \
+        && pip install requests
 
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
@@ -23,7 +23,7 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-WORKDIR /scripts/UnicomTask
+WORKDIR /scripts
 
 #镜像构建版本,每次调整构建文件更新
 ENV BUILD_VERSION=1.0 \
