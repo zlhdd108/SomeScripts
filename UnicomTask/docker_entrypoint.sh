@@ -8,8 +8,7 @@ fi
 
 echo "获取最新UnicomTask相关代码"
 cd /scripts
-git reset --hard
-git pull origin master --rebase
+git pull
 
 cd /UnicomTask
 git pull
