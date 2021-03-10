@@ -13,6 +13,7 @@ git pull origin master --rebase
 
 cd /UnicomTask
 git pull
+pip3 install -r requirements.txt
 echo "获取最新UnicomTask相关代码完成"
 
 echo "首次初始化定时任务..."
