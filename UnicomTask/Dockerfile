@@ -7,11 +7,11 @@ RUN set -ex \
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
-RUN pip3 install --upgrade pip \
-        && pip3 install requests \
-        && pip3 install py-emails \
-        && pip3 install lxml \
-        && pip3 install rsa
+RUN pip3 install --upgrade pip
+RUN pip3 install requests
+RUN pip3 install py-emails
+RUN pip3 install lxml
+RUN pip3 install rsa
 
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
