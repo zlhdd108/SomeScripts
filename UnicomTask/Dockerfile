@@ -3,7 +3,7 @@ LABEL VERSION=1.0
 
 RUN set -ex \
         && apk update && apk upgrade \
-        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq libxml2 libxslt \
+        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq cython libxml2 libxslt \
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
