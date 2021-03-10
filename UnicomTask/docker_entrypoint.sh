@@ -6,14 +6,14 @@ if [ $1 ]; then
     run_cmd=$1
 fi
 
-echo "获取最新mimotion相关代码"
+echo "获取最新UnicomTask相关代码"
 cd /scripts
 git reset --hard
 git pull origin master --rebase
-echo "获取最新mimotion相关代码完成"
+echo "获取最新UnicomTask相关代码完成"
 
 echo "首次初始化定时任务..."
-sh -x /scripts/mimotion/default_task.sh
+sh -x /scripts/UnicomTask/default_task.sh
 echo "初始化完成..."
 
 if [ $run_cmd ]; then
