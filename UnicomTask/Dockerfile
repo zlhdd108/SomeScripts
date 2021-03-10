@@ -1,14 +1,17 @@
-FROM alpine:3.3
+FROM alpine
 LABEL VERSION=1.0
 
 RUN set -ex \
         && apk update && apk upgrade \
-        && apk add --no-cache python py-pip tzdata moreutils git curl jq\
+        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq\
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
-RUN pip install --upgrade pip \
-        && pip install requests
+RUN pip3 install --upgrade pip \
+        && pip3 install requests \
+        && pip3 install py-emails \
+        && pip3 install lxml \
+        && pip3 install rsa
 
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
