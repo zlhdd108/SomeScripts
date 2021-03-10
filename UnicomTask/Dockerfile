@@ -8,25 +8,26 @@ RUN set -ex \
         && echo "Asia/Shanghai" > /etc/timezone
 
 RUN mkdir /logs \
-        && mkdir /UnicomTask \
-        && cd  /UnicomTask \
+        && mkdir /unicomtask \
+        && cd  /unicomtask \
         && git init \
         && git remote add -f origin https://github.com/srcrs/UnicomTask.git \
         && git config core.sparsecheckout true \
-        && echo login.py >> .git/info/sparse-checkout \
-        && echo main.py >> .git/info/sparse-checkout \
-        && echo notify.py >> .git/info/sparse-checkout \
-        && echo requirements.txt >> .git/info/sparse-checkout \
-        && git pull origin main \
+        && echo login.py >> /unicomtask/.git/info/sparse-checkout \
+        && echo main.py >> /unicomtask/.git/info/sparse-checkout \
+        && echo notify.py >> /unicomtask/.git/info/sparse-checkout \
+        && echo requirements.txt >> /unicomtask/.git/info/sparse-checkout \
+        && git pull origin main --rebase \
         && pip3 install --upgrade pip \
         && pip3 install -r requirements.txt
-COPY ./UnicomTask/crontab_list.sh /UnicomTask
+
+COPY ./UnicomTask/crontab_list.sh /unicomtask
 COPY ./UnicomTask/update.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/update.sh
 
-WORKDIR /UnicomTask
+WORKDIR /unicomtask
 
-RUN crontab /UnicomTask/crontab_list.sh
+RUN crontab /unicomtask/crontab_list.sh
 
 CMD [ "crond" ]
