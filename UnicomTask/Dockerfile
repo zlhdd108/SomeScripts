@@ -8,10 +8,8 @@ RUN set -ex \
         && echo "Asia/Shanghai" > /etc/timezone
 
 RUN pip3 install --upgrade pip
-RUN pip3 install requests
-RUN pip3 install py-emails
+RUN pip3 install requests py-emails libxml2 libxslt rsa
 RUN pip3 install lxml
-RUN pip3 install rsa
 
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
