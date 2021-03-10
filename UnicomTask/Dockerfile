@@ -3,13 +3,15 @@ LABEL VERSION=1.0
 
 RUN set -ex \
         && apk update && apk upgrade \
-        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq\
+        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq libxml2 libxslt \
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
 RUN pip3 install --upgrade pip
-RUN pip3 install requests py-emails libxml2 libxslt rsa
+RUN pip3 install requests
+RUN pip3 install py-emails
 RUN pip3 install lxml
+RUN pip3 install rsa
 
 # 配置镜像仓库配置相关文件夹
 # 创建工作目录
