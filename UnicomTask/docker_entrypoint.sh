@@ -7,11 +7,13 @@ if [ $1 ]; then
 fi
 
 echo "获取最新UnicomTask相关代码"
-cd /scripts
-git pull
+git -C /scripts reset --hard
+git -C /scripts pull origin master --rebase
+
+git -C /UnicomTask reset --hard
+git -C /UnicomTask pull origin main --rebase
 
 cd /UnicomTask
-git pull
 pip3 install -r requirements.txt
 echo "获取最新UnicomTask相关代码完成"
 

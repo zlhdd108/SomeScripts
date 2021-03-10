@@ -18,18 +18,18 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-RUN mkdir /UnicomTask \
+RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTask \
         && cd /UnicomTask \
-        && git init \
-        && git remote add -f origin https://github.com/srcrs/UnicomTask.git \
-        && git config core.sparsecheckout true \
-        && echo *.py >> /UnicomTask/.git/info/sparse-checkout \
-        && echo requirements.txt >> /UnicomTask/.git/info/sparse-checkout \
-        && git pull origin main \
+        && git checkout main \
         && pip3 install --upgrade pip \
         && pip3 install -r requirements.txt
 
-WORKDIR /UnicomTask
+
+RUN mkdir /DoUnicomTask \
+        && cp /UnicomTask/*.py /DoUnicomTask \
+        && cp /UnicomTask/requirements.txt /DoUnicomTask
+
+WORKDIR /DoUnicomTask
 
 #镜像构建版本,每次调整构建文件更新
 ENV BUILD_VERSION=1.0 \
