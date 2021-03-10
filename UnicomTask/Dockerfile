@@ -11,7 +11,6 @@ RUN set -ex \
 RUN mkdir /logs \
         && mkdir /scripts \
         && git clone https://github.com/srcrs/UnicomTask.git /unicomtask \
-        && pip3 install -r requirements.txt \
         && cp /unicomtask/*.py /scripts \
         && cp /unicomtask/requirements.txt /scripts
 
