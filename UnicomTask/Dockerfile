@@ -16,7 +16,7 @@ RUN mkdir /logs \
 
 RUN cd /scripts \
         && pip3 install --upgrade pip \
-        && pip3 install -r requirements.txt
+        && pip3 install requests lxml rsa
 
 COPY ./UnicomTask/crontab_list.sh /scripts
 COPY ./UnicomTask/update.sh /usr/local/bin
