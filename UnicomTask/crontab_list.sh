@@ -3,4 +3,4 @@
 
 0 23 * * * update.sh >> /logs/update.log 2>&1
 
-30 23 * * * cd /unicomtask && python3 main.py
+30 23 * * * cd /scripts && python3 main.py
