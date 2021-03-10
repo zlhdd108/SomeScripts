@@ -1,9 +1,9 @@
-FROM alpine
+FROM ubuntu
 LABEL VERSION=1.0
 
 RUN set -ex \
-        && apk update && apk upgrade \
-        && apk add --no-cache python3 py3-pip tzdata moreutils git curl jq\
+        && apt update && apt upgrade \
+        && apt add --no-cache python3 python3-pip tzdata moreutils git curl jq \
         && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
         && echo "Asia/Shanghai" > /etc/timezone
 
