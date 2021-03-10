@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.3
 LABEL VERSION=1.0
 
 RUN set -ex \
