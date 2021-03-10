@@ -5,7 +5,7 @@ wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScrip
 echo "# diy sh" >> /scripts/docker/merged_list_file.sh
 echo "58 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # 宠汪汪邀请助力
-wget -O /scripts/docker/jd_joy_run.js https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_joy_run.js
+wget -O /scripts/jd_joy_run.js https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/jd_joy_run.js
 ## 修改京东汽车兑换定时
 sed -i "s/0 0 \* \* \* node \/scripts\/jd_car_exchange.js/2 0 \* \* \* node \/scripts\/jd_car_exchange.js/g" /scripts/docker/merged_list_file.sh
 ## 修改环球挑战赛定时
