@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.04
 LABEL AUTHOR="iouAkira <e.akimoto.akira@gmail.com>"
 
 ENV DEFAULT_LIST_FILE=crontab_list.sh \
