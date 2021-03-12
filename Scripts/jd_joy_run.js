@@ -17,9 +17,9 @@
  
 //此处填入你需要助力好友的京东用户名
 //下面给出好友邀请助力的示例填写规则
-let invite_pins = ["jd_47ee22449e303","jd_6c5e39478ec3b","zhaosen2580","mjw6652","88489948","liuz9988","18323695900a"]; //手动填写格式["jd_julBEausqrhE","jd_780ac31fe307e"]
+let invite_pins = ['jd_47ee22449e303,jd_6c5e39478ec3b,mjw6652,zhaosen2580,jd_61f1269fd3236,liuz9988,18323695900a']; //手动填写格式["jd_julBEausqrhE","jd_780ac31fe307e"]
 //下面给出好友赛跑助力的示例填写规则
-let run_pins = ["jd_47ee22449e303","jd_6c5e39478ec3b","zhaosen2580","mjw6652","88489948","liuz9988","18323695900a"];  //手动填写格式["jd_julBEausqrhE","jd_780ac31fe307e"]
+let run_pins = ['jd_47ee22449e303,jd_6c5e39478ec3b,mjw6652,zhaosen2580,jd_61f1269fd3236,liuz9988,18323695900a'];  //手动填写格式["jd_julBEausqrhE","jd_780ac31fe307e"]
 
 
 
@@ -46,7 +46,7 @@ const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 
 // $.LKYLToken = '76fe7794c475c18711e3b47185f114b5' || $.getdata('jdJoyRunToken');
 // $.LKYLToken = $.getdata('jdJoyRunToken');
-let friendsArr = ["jd_47ee22449e303","jd_6c5e39478ec3b","zhaosen2580","mjw6652","88489948","liuz9988","18323695900a"] //["201116391-607759","jd_julBEausqrhE","jf-chase","13777533321_p","jd_780ac31fe307e"]
+let friendsArr = ["jd_47ee22449e303","jd_6c5e39478ec3b","mjw6652","zhaosen2580","jd_61f1269fd3236","liuz9988","18323695900a"] //["201116391-607759","jd_julBEausqrhE","jf-chase","13777533321_p","jd_780ac31fe307e"]
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
