@@ -1,7 +1,5 @@
-
 #!/bin/sh
 set -e
-
 
 if [ ! -f "/telethon/jd_zbj.py" ]; then
     echo "京东直播间抽奖脚本不存在，跳过执行..."
