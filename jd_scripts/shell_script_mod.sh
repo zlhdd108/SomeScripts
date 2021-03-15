@@ -31,7 +31,7 @@ echo "# 美的家电节" >> /scripts/docker/merged_list_file.sh
 echo "15 10 10-31 3 * node /scripts/z_unionPoster.js >> /scripts/logs/z_unionPoster.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
 # diy sh
-wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScripts/master/Scripts/diy.sh
+wget -O /scripts/docker/diy.sh https://raw.githubusercontent.com/FKPYW/SomeScripts/master/jd_scripts/diy.sh
 echo "# diy sh" >> /scripts/docker/merged_list_file.sh
 echo "57 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
