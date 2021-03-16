@@ -26,8 +26,8 @@ cp -f /SomeScripts/jd_scripts/custom_script.sh /scripts/docker
 
 # custom_docker_entrypoint
 echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
-echo "57 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
-echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
+echo "58 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
+echo "# custom_script" >> /scripts/docker/merged_list_file.sh
 echo "59 * * * * sh -x /scripts/docker/custom_script.sh >> /scripts/logs/custom_script.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
 ## 百变大咖秀
@@ -55,7 +55,7 @@ echo "18 8,10 8-15 3 * node /scripts/z_superDay.js >> /scripts/logs/jd_superDay.
 echo "# 京东超市-大转盘" >> /scripts/docker/merged_list_file.sh
 echo "10 10 * * * node /scripts/z_marketLottery.js >> /scripts/logs/jd_marketLottery.log 2>&1" >> /scripts/docker/merged_list_file.sh
 ## 美的家电节
-echo "# 的家电节" >> /scripts/docker/merged_list_file.sh
+echo "# 美的家电节" >> /scripts/docker/merged_list_file.sh
 echo "12 10 10-31 3 * node /scripts/z_unionPoster.js >> /scripts/logs/jd_unionPoster.log 2>&1" >> /scripts/docker/merged_list_file.sh
 ## 众筹许愿池
 echo "# 众筹许愿池" >> /scripts/docker/merged_list_file.sh
