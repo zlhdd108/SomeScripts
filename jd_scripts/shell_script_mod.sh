@@ -27,12 +27,12 @@ fi
 
 cp -f /i-chenzhe/*.js /scripts
 cp -f /jd_scripts/jd_scripts/*.js /scripts/docker
-cp -f /jd_scripts/jd_scripts/custom_docker_entrypoint.sh /scripts/docker
+cp -f /jd_scripts/jd_scripts/custom_update.sh /scripts/docker
 cp -f /jd_scripts/jd_scripts/custom_script.sh /scripts/docker
 
 # custom_docker_entrypoint
 echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
-echo "57 * * * * sh -x /scripts/docker/custom_docker_entrypoint.sh >> /scripts/logs/custom_docker_entrypoint.log 2>&1" >> /scripts/docker/merged_list_file.sh
+echo "57 * * * * sh -x /scripts/docker/custom_update.sh >> /scripts/logs/custom_update.log 2>&1" >> /scripts/docker/merged_list_file.sh
 # custom_script
 echo "# custom_script" >> /scripts/docker/merged_list_file.sh
 echo "59 * * * * sh -x /scripts/docker/custom_script.sh >> /scripts/logs/custom_script.log 2>&1" >> /scripts/docker/merged_list_file.sh
