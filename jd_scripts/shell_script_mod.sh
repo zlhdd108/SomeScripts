@@ -15,6 +15,8 @@ if [ ! -d "/jd_scripts/" ]; then
     git clone https://github.com/FKPYW/SomeScripts.git /jd_scripts
 else
     echo "更新jd_scripts脚本相关文件..."
+    cd /jd_scripts
+    git remote set-url origin https://github.com/FKPYW/SomeScripts.git 
     git -C /jd_scripts reset --hard
     git -C /jd_scripts pull --rebase
 fi
