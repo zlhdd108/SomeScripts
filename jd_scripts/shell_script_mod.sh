@@ -27,3 +27,5 @@ cp -f /SomeScripts/jd_scripts/custom_script.sh /scripts/docker
 # custom_docker_entrypoint
 echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
 echo "57 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
+echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
+echo "59 * * * * sh -x /scripts/docker/custom_script.sh >> /scripts/logs/custom_script.log 2>&1" >> /scripts/docker/merged_list_file.sh

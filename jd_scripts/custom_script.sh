@@ -62,3 +62,6 @@ cp -f /scripts/docker/jd_joy_run.js /scripts/jd_joy_run.js
 sed -i "s/helpAu = true;/helpAu = false;/g" /scripts/jd_*.js
 sed -i "s/helpAuthor = true;/helpAuthor = false;/g" /scripts/jd_*.js
 
+echo "----------------加载最新的定时任务文件-----------------"
+crontab /scripts/docker/merged_list_file.sh
+echo "---------------------务执行完成----------------------"
