@@ -12,13 +12,7 @@ fi
 # 克隆jd_scripts仓库
 if [ ! -d "/jd_scripts/" ]; then
     echo "未检查到jd_scripts仓库脚本，初始化下载相关脚本..."
-    mkdir /jd_scripts
-    cd /jd_scripts
-    git init
-    git remote add -f origin https://github.com/FKPYW/SomeScripts.git
-    git config core.sparsecheckout true
-    echo jd_scripts/* >> /jd_scripts/.git/info/sparse-checkout
-    git pull origin master
+    git clone https://github.com/FKPYW/SomeScripts.git /jd_scripts
 else
     echo "更新jd_scripts脚本相关文件..."
     git -C /jd_scripts reset --hard
