@@ -27,7 +27,7 @@ fi
 
 cp -f /i-chenzhe/*.js /scripts
 cp -f /jd_scripts/jd_scripts/*.js /scripts/docker
-cp -f /jd_scripts/jd_scripts/custom_update.sh /scripts/docker
+cp -f /jd_scripts/jd_scripts/diy.sh /scripts/docker
 cp -f /jd_scripts/jd_scripts/custom_script.sh /scripts/docker
 
 # custom_docker_entrypoint
