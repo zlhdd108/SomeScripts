@@ -15,7 +15,7 @@ sh -x /scripts/docker/custom_script.sh
 echo "---------------------务执行完成----------------------"
 
 echo "----------------加载最新的定时任务文件-----------------"
-crontab $mergedListFile
+crontab /scripts/docker/merged_list_file.sh
 echo "---------------------务执行完成----------------------"
 
 echo -e "\n\n"
