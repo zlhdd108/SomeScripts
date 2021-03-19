@@ -12,9 +12,6 @@
 # 超级摇一摇
 5 20 * * * node /scripts/jd_shake.js >> /scripts/logs/jd_shake.log 2>&1
 
-# 京东小魔方
-8 10 16-18 * * node /scripts/jd_xmf.js >> /scripts/logs/jd_xmf.log 2>&1
-
 # 联想集卡活动
 10 15 15-29 3 * node /scripts/z_lenovo.js >> /scripts/logs/jd_lenovo.log 2>&1
 
