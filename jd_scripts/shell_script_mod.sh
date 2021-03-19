@@ -26,43 +26,6 @@ cp -f /SomeScripts/jd_scripts/custom_script.sh /scripts/docker
 sed -i "/^$/d" /SomeScripts/jd_scripts/remote_crontab_list.sh
 cat /SomeScripts/jd_scripts/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
-# custom_docker_entrypoint
-echo "# 自定义更新时间" >> /scripts/docker/merged_list_file.sh
-echo "58 * * * * sh -x /scripts/docker/diy.sh >> /scripts/logs/diy.log 2>&1" >> /scripts/docker/merged_list_file.sh
-echo "# custom_script" >> /scripts/docker/merged_list_file.sh
-echo "59 * * * * sh -x /scripts/docker/custom_script.sh >> /scripts/logs/custom_script.log 2>&1" >> /scripts/docker/merged_list_file.sh
-
-## 百变大咖秀
-echo "# 百变大咖秀" >> /scripts/docker/merged_list_file.sh
-echo "0 10,11 * * 2-5 node /scripts/jd_entertainment.js >> /scripts/logs/jd_entertainment.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 粉丝互动
-echo "# 粉丝互动" >> /scripts/docker/merged_list_file.sh
-echo "16 10 * * * node /scripts/jd_fanslove.js >> /scripts/logs/jd_fanslove.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 超级摇一摇
-echo "# 超级摇一摇" >> /scripts/docker/merged_list_file.sh
-echo "5 20 * * * node /scripts/jd_shake.js >> /scripts/logs/jd_shake.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 京东小魔方
-echo "# 京东小魔方" >> /scripts/docker/merged_list_file.sh
-echo "8 10 16-18 * * node /scripts/jd_xmf.js >> /scripts/logs/jd_xmf.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 联想集卡活动
-echo "# 联想集卡活动" >> /scripts/docker/merged_list_file.sh
-echo "8 15 15-29 3 * node /scripts/z_lenovo.js >> /scripts/logs/jd_lenovo.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 京东超市-大转盘
-echo "# 京东超市-大转盘" >> /scripts/docker/merged_list_file.sh
-echo "10 10 * * * node /scripts/z_marketLottery.js >> /scripts/logs/jd_marketLottery.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 母婴-跳一跳
-echo "# 母婴-跳一跳" >> /scripts/docker/merged_list_file.sh
-echo "15 8,14,20 17-25 3 * node /scripts/z_mother_jump.js >> /scripts/logs/jd_mother_jump.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 一加盲盒
-echo "# 一加盲盒" >> /scripts/docker/merged_list_file.sh
-echo "16 12 17-30 3 *  node /scripts/z_oneplus.js >> /scripts/logs/jd_oneplus.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 美的家电节
-echo "# 美的家电节" >> /scripts/docker/merged_list_file.sh
-echo "12 10 10-31 3 * node /scripts/z_unionPoster.js >> /scripts/logs/jd_unionPoster.log 2>&1" >> /scripts/docker/merged_list_file.sh
-## 众筹许愿池
-echo "# 众筹许愿池" >> /scripts/docker/merged_list_file.sh
-echo "5 10 13-20 3 * node /scripts/z_wish.js >> /scripts/logs/jd_wish.log 2>&1" >> /scripts/docker/merged_list_file.sh
-
 # 修改京东赚赚定时
 sed -i "s/10 11 \* \* \* node \/scripts\/jd_jdzz.js/10 \* \* \* \* node \/scripts\/jd_jdzz.js/g" /scripts/docker/merged_list_file.sh
 sed -i "s/10 11 \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_jdzz.js/10 \* \* \* \* sleep \$((RANDOM % \$RANDOM_DELAY_MAX)); node \/scripts\/jd_jdzz.js/g" /scripts/docker/merged_list_file.sh
