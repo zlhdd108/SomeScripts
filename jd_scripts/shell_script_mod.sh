@@ -23,6 +23,7 @@ cp -f /i-chenzhe/*.js /scripts
 cp -f /SomeScripts/jd_scripts/*.js /scripts/docker
 cp -f /SomeScripts/jd_scripts/diy.sh /scripts/docker
 cp -f /SomeScripts/jd_scripts/custom_script.sh /scripts/docker
+cp -f /SomeScripts/jd_scripts/remote_crontab_list.sh /scripts/docker
 sed -i "/^$/d" /SomeScripts/jd_scripts/remote_crontab_list.sh
 cat /SomeScripts/jd_scripts/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
