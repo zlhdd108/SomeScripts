@@ -156,29 +156,7 @@ else
 fi
 
 echo "第4步判断是否配置自定义shell脚本..."
-if [ 0"$CUSTOM_SHELL_FILE" = "0" ]; then
-    echo "未配置自定shell脚本文件，跳过执行。"
-else
-    if expr "$CUSTOM_SHELL_FILE" : 'http.*' &>/dev/null; then
-        echo "自定义shell脚本为远程脚本，开始下载自定义远程脚本..."
-        wget -O /scripts/docker/shell_script_mod.sh $CUSTOM_SHELL_FILE
-        echo "下载完成，开始执行..."
-        echo "" >>$mergedListFile
-        echo "##############远程脚本##############" >>$mergedListFile
-        sh -x /jds/jd_scripts/shell_script_mod.sh
-        echo "自定义远程shell脚本下载并执行结束。"
-    else
-        if [ ! -f $CUSTOM_SHELL_FILE ]; then
-            echo "自定义shell脚本为挂载的脚本文件，但是指定挂载文件不存在，跳过执行。"
-        else
-            echo "挂载的自定shell脚本，开始执行..."
-            echo "" >>$mergedListFile
-            echo "##############挂载脚本##############" >>$mergedListFile
-            sh -x $CUSTOM_SHELL_FILE
-            echo "挂载的自定shell脚本，执行结束。"
-        fi
-    fi
-fi
+sh -x /jds/jd_scripts/shell_script_mod.sh
 
 echo "第5步执行proc_file.sh脚本任务..."
 sh -x /jds/jd_scripts/proc_file.sh
