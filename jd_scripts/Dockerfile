@@ -31,7 +31,7 @@ RUN git clone -b $REPO_BRANCH $REPO_URL /scripts \
 RUN mkdir /jds \
         && cd /jds \
         && git init \
-        && git remote add -f origin https://github.com/iouAkira/someDockerfile.git \
+        && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
         && echo jd_scripts >> /jds/.git/info/sparse-checkout \
         && git pull origin master --rebase
