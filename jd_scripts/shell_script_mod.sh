@@ -16,5 +16,5 @@ cat /i-chenzhe/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
 if [ -d "/scripts/jd_live_lottery_social.js" ]; then
     echo "未检查到live脚本..."
-    echo "# if" >>$mergedListFile
-    echo "5 8,12,16,20,23 * * * node /scripts/jd_live_lottery_social.js >> /scripts/logs/jd_live_lottery_social.log 2>&1" >>$mergedListFile
+    echo "# if" >> /scripts/docker/merged_list_file.sh
+    echo "5 8,12,16,20,23 * * * node /scripts/jd_live_lottery_social.js >> /scripts/logs/jd_live_lottery_social.log 2>&1" >> /scripts/docker/merged_list_file.sh
