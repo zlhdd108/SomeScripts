@@ -10,8 +10,8 @@ echo "更新updateTeam仓库文件..."
 cd /scripts
 git reset --hard
 git pull origin master --rebase
-cp -f /scripts/*.js /run
-cp -f /scripts/*.json /run
+cp -f /scripts/*.js /runscripts
+cp -f /scripts/*.json /runscripts
 cd /jds
 echo "更新jds仓库文件..."
 git reset --hard
