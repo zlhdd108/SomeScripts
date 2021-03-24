@@ -12,3 +12,7 @@ fi
 cp -f /i-chenzhe/*_*.js /scripts
 
 cat /i-chenzhe/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
+
+wget -O /scripts/jd_zjd_tuan.js https://raw.githubusercontent.com/whyour/hundun/master/quanx/jd_zjd_tuan.js
+echo "# 京东赚京东开团" >> /scripts/docker/merged_list_file.sh
+echo "10 * * * * node /scripts/jd_zjd_tuan.js >> /scripts/logs/jd_zjd_tuan.log 2>&1" >> /scripts/docker/merged_list_file.sh
