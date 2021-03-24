@@ -6,18 +6,12 @@ if [ $1 ]; then
     run_cmd=$1
 fi
 
-echo "更新updateTeam仓库文件..."
-cd /scripts
-git reset --hard
-git pull origin master --rebase
-cp -f /scripts/*.js /runscripts
-cp -f /scripts/*.json /runscripts
 cd /jds
 echo "更新jds仓库文件..."
 git reset --hard
 git pull origin master --rebase
 echo "npm install 安装最新依赖..."
-npm install --loglevel error --prefix /run
+npm install --loglevel error --prefix /jds/updateTeam/js
 
 echo "------------------------------------------------执行定时任务任务shell脚本------------------------------------------------"
 sh -x /jds/updateTeam/default_task.sh
