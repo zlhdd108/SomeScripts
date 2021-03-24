@@ -14,6 +14,12 @@ RUN set -ex \
         && chmod 600 /root/.ssh/id_rsa \
         && ssh-keyscan github.com > /root/.ssh/known_hosts
 
+RUN git clone https://gitee.com/lxk0301/updateTeam.git /scripts \
+        && mkdir /runscripts \
+        && cp -f /scripts/*.js /runscripts \
+        && cp -f /scripts/*.json /runscripts \
+        && cd /runscripts \
+        && npm install
 
 RUN mkdir /logs \
         && mkdir /jds \
@@ -22,9 +28,7 @@ RUN mkdir /logs \
         && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
         && echo updateTeam/* >> /jds/.git/info/sparse-checkout \
-        && git pull origin master \
-        && cd /jds/updateTeam/js \
-        && npm install
+        && git pull origin master
 
 RUN cp /jds/updateTeam/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
