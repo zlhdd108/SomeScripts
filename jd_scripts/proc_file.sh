@@ -1,9 +1,9 @@
 #!/bin/sh
 
 if [[ -f /usr/bin/jd_bot && -z "$DISABLE_SPNODE" ]]; then
-   CMD="spnode"
+  CMD="spnode"
 else
-   CMD="NODE"
+  CMD="node"
 fi
 
 echo "处理jd_crazy_joy_coin任务。。。"
@@ -25,7 +25,6 @@ else
       echo "已配置不启用jd_crazy_joy_coin任务，不处理"
    fi
 fi
-
 
 # 修改京东赚赚定时
 sed -i "s/6 0,11 \* \* \* node \/scripts\/jd_jdzz.js/10 \* \* \* \* node \/scripts\/jd_jdzz.js/g" /scripts/docker/merged_list_file.sh
