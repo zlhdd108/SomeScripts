@@ -10,4 +10,12 @@
 #     git -C /i-chenzhe pull origin main --rebase
 # fi
 # cp -f /i-chenzhe/*_*.js /scripts
-cat /i-chenzhe/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
+
+if [ ! -d "/i-chenzhe/" ]; then
+    echo "未检查到i-chenzhe仓库脚本..."
+else
+    echo "更新i-chenzhe脚本相关文件..."
+    cat /i-chenzhe/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
+fi
+
+
