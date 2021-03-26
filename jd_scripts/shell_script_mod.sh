@@ -17,5 +17,3 @@ else
     echo "更新i-chenzhe脚本相关文件..."
     cat /i-chenzhe/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 fi
-
-
