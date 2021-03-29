@@ -18,7 +18,7 @@ RUN mkdir /logs \
         && cp /scripts/UnicomTask/docker_entrypoint.sh /usr/local/bin \
         && chmod +x /usr/local/bin/docker_entrypoint.sh
 
-RUN git clone https://github.com/srcrs/UnicomTask.git /UnicomTask \
+RUN git clone https://hub.fastgit.org/srcrs/UnicomTask.git /UnicomTask \
         && cd /UnicomTask \
         && git checkout main \
         && pip3 install --upgrade pip \
