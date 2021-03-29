@@ -11,7 +11,7 @@ RUN mkdir /logs \
         && mkdir /scripts \
         && cd /scripts \
         && git init \
-        && git remote add -f origin https://github.com/FKPYW/SomeScripts.git \
+        && git remote add -f origin https://hub.fastgit.org/FKPYW/SomeScripts.git \
         && git config core.sparsecheckout true \
         && echo UnicomTask/* >> /scripts/.git/info/sparse-checkout \
         && git pull origin master \
